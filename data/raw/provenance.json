@@ -1,0 +1,15 @@
+{
+  "fetched_at_utc": "2026-11-10T20:52:20.472447+00:00",
+  "sources": [
+    "https://api.nearblocks.io/v1/charts",
+    "https://api.nearblocks.io/v1/stats",
+    "https://free.rpc.fastnear.com",
+    "https://1click.chaindefuser.com/v0/tokens",
+    "https://1click.chaindefuser.com/v0/quote",
+    "bigquery-public-data.crypto_near_mainnet_us"
+  ],
+  "nearblocks_days_saved": 365,
+  "fastnear_latest_block": 223968544,
+  "fastnear_sampled_transactions": 79,
+  "intents_quotes_count": 20
+}

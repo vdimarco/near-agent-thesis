@@ -1,0 +1,13 @@
+{
+  "dataset": "bigquery-public-data.crypto_near_mainnet_us",
+  "maximum_bytes_billed": 50000000000,
+  "lake_deprecation_date": "2026-03-24",
+  "validated_sql_files": [
+    "01_agent_primitives_daily.sql",
+    "02_receiver_concentration.sql",
+    "03_gas_and_storage_costs.sql"
+  ],
+  "executed_live_bq": false,
+  "rows_by_query": {},
+  "note": "SQL queries validated for block_date partition filters. BigQuery ADC not active in current shell (DefaultCredentialsError); live 2026 mainnet metrics pulled via FastNEAR RPC, NearBlocks API, and 1Click API."
+}

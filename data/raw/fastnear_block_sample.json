@@ -1,0 +1,219 @@
+{
+  "total_transactions": 79,
+  "unique_signers": 14,
+  "action_counts": {
+    "DELEGATE_ACTION": 52,
+    "FUNCTION_CALL": 27,
+    "ADD_KEY": 1
+  },
+  "scoped_function_call_keys": 10,
+  "full_access_keys": 43,
+  "subaccount_transactions": 28,
+  "top_receivers": [
+    {
+      "receiver_id": "token.sweat",
+      "count": 32
+    },
+    {
+      "receiver_id": "spin.sweat",
+      "count": 31
+    },
+    {
+      "receiver_id": "game.hot.tg",
+      "count": 18
+    },
+    {
+      "receiver_id": "intents.near",
+      "count": 12
+    },
+    {
+      "receiver_id": "omft.near",
+      "count": 4
+    },
+    {
+      "receiver_id": "omni.bridge.near",
+      "count": 3
+    },
+    {
+      "receiver_id": "pcworm.near",
+      "count": 2
+    },
+    {
+      "receiver_id": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+      "count": 2
+    },
+    {
+      "receiver_id": "v2.ref-finance.near",
+      "count": 2
+    },
+    {
+      "receiver_id": "garciakimberly18890.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "jars-oracle.sweat",
+      "count": 1
+    },
+    {
+      "receiver_id": "v2.jars.sweat",
+      "count": 1
+    },
+    {
+      "receiver_id": "080ee45ab2e60af503ecc5f5dfa03057fb786d584127254b6354132b63854c02",
+      "count": 1
+    },
+    {
+      "receiver_id": "mooreedwardjf117.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "8e41c5f3881ad1579d86d9fb424ae08a485a21c752be9518c450f758566d8a28",
+      "count": 1
+    },
+    {
+      "receiver_id": "pstormie43462sos556-hot1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "xiaoyingcute1859-hot1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "hoangnam0998584-hot1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "buncacay1661630-hot1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "mukulmahmud2024-hot.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "nguyenvanhau951629-hot1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "dclv2.ref-labs.near",
+      "count": 1
+    },
+    {
+      "receiver_id": "vshekar68733uky1999-hot1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "djastro1.tg",
+      "count": 1
+    },
+    {
+      "receiver_id": "near",
+      "count": 1
+    }
+  ],
+  "delegate_receivers": {
+    "token.sweat": 32,
+    "game.hot.tg": 17,
+    "v2.jars.sweat": 1,
+    "pcworm.near": 1,
+    "claim.sweat": 1
+  },
+  "receiver_hhi": 1465.53,
+  "access_key_audit": {
+    "accounts_inspected": 11,
+    "total_function_call_keys": 9,
+    "total_full_access_keys": 43,
+    "per_account": [
+      {
+        "account_id": "abdulhamid92.near",
+        "function_call_keys": 0,
+        "full_access_keys": 1,
+        "total_keys": 1
+      },
+      {
+        "account_id": "closemeat6237.near",
+        "function_call_keys": 0,
+        "full_access_keys": 16,
+        "total_keys": 16
+      },
+      {
+        "account_id": "dclv2.ref-labs.near",
+        "function_call_keys": 0,
+        "full_access_keys": 0,
+        "total_keys": 0
+      },
+      {
+        "account_id": "djastro1.tg",
+        "function_call_keys": 0,
+        "full_access_keys": 1,
+        "total_keys": 1
+      },
+      {
+        "account_id": "hadimozafary.tg",
+        "function_call_keys": 0,
+        "full_access_keys": 1,
+        "total_keys": 1
+      },
+      {
+        "account_id": "intents.near",
+        "function_call_keys": 9,
+        "full_access_keys": 0,
+        "total_keys": 9
+      },
+      {
+        "account_id": "mukulmahmud2024-hot.tg",
+        "function_call_keys": 0,
+        "full_access_keys": 1,
+        "total_keys": 1
+      },
+      {
+        "account_id": "omni.bridge.near",
+        "function_call_keys": 0,
+        "full_access_keys": 0,
+        "total_keys": 0
+      },
+      {
+        "account_id": "safenode8556.near",
+        "function_call_keys": 0,
+        "full_access_keys": 1,
+        "total_keys": 1
+      },
+      {
+        "account_id": "spin.sweat",
+        "function_call_keys": 0,
+        "full_access_keys": 21,
+        "total_keys": 21
+      },
+      {
+        "account_id": "xiaoyingcute1859-hot1.tg",
+        "function_call_keys": 0,
+        "full_access_keys": 1,
+        "total_keys": 1
+      }
+    ]
+  },
+  "latest_block_height": 223968544,
+  "sampled_block_heights": [
+    223968544,
+    223968543,
+    223968542,
+    223968541,
+    223968540,
+    223968539,
+    223968538,
+    223968537,
+    223968536,
+    223968535,
+    223968534,
+    223968533,
+    223968532,
+    223968531,
+    223968530,
+    223968525,
+    223968524,
+    223968521
+  ],
+  "sampled_chunks_count": 110,
+  "intents_contract_storage_bytes": 13555359691,
+  "intents_contract_balance_near": 136265.98
+}
