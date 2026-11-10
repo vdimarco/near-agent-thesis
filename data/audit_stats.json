@@ -1,0 +1,381 @@
+{
+  "macro_network": {
+    "latest_date": "2026-11-09",
+    "near_price_usd": 3.56,
+    "avg_block_time_sec": 0.561,
+    "nodes_online": 371,
+    "mean_daily_txns_30d": 662520,
+    "mean_daily_txns_prior_30d": 856249,
+    "intents_contract_storage_bytes": 13555359691,
+    "intents_contract_balance_near": 136265.98
+  },
+  "agent_primitives": {
+    "latest_block_height": 223968544,
+    "sampled_chunks": 110,
+    "sampled_transactions": 79,
+    "accounts_inspected": 11,
+    "scoped_function_call_keys": 10,
+    "full_access_keys": 43,
+    "scoped_key_share_pct": 18.9,
+    "delegate_action_share_pct": 65.0,
+    "function_call_share_pct": 33.8,
+    "subaccount_tx_share_pct": 35.4
+  },
+  "receiver_concentration": {
+    "top3_share_pct": 66.4,
+    "non_top3_share_pct": 33.6,
+    "intents_receiver_share_pct": 9.8,
+    "hhi": 1683.69,
+    "top_receivers": [
+      {
+        "receiver_id": "token.sweat",
+        "count": 32
+      },
+      {
+        "receiver_id": "spin.sweat",
+        "count": 31
+      },
+      {
+        "receiver_id": "game.hot.tg",
+        "count": 18
+      },
+      {
+        "receiver_id": "intents.near",
+        "count": 12
+      },
+      {
+        "receiver_id": "omft.near",
+        "count": 4
+      },
+      {
+        "receiver_id": "omni.bridge.near",
+        "count": 3
+      },
+      {
+        "receiver_id": "pcworm.near",
+        "count": 2
+      },
+      {
+        "receiver_id": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+        "count": 2
+      },
+      {
+        "receiver_id": "v2.ref-finance.near",
+        "count": 2
+      },
+      {
+        "receiver_id": "garciakimberly18890.tg",
+        "count": 1
+      }
+    ],
+    "delegate_receivers": {
+      "token.sweat": 32,
+      "game.hot.tg": 17,
+      "v2.jars.sweat": 1,
+      "pcworm.near": 1,
+      "claim.sweat": 1
+    }
+  },
+  "intents_quotes": {
+    "supported_tokens_count": 229,
+    "quotes_tested": 20,
+    "quotes_succeeded": 20,
+    "median_spread_bps_by_usd": {
+      "1": 67.96,
+      "10": 8.78,
+      "100": 1.75,
+      "1000": 1.46,
+      "10000": 1.9
+    },
+    "mid_tier_median_spread_bps": 1.67,
+    "median_quote_latency_ms": 579.2,
+    "quotes": [
+      {
+        "corridor": "USDC_NEAR_to_ARB",
+        "amount_usd": 1.0,
+        "status": "quoted",
+        "amount_in_usd": 0.9996,
+        "amount_out_usd": 0.9941,
+        "spread_bps": 55.02,
+        "time_estimate_sec": 19,
+        "latency_ms": 503.8,
+        "corridor_label": "USDC (NEAR -> Arbitrum)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_ARB",
+        "amount_usd": 10.0,
+        "status": "quoted",
+        "amount_in_usd": 9.9959,
+        "amount_out_usd": 9.9895,
+        "spread_bps": 6.37,
+        "time_estimate_sec": 19,
+        "latency_ms": 512.3,
+        "corridor_label": "USDC (NEAR -> Arbitrum)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_ARB",
+        "amount_usd": 100.0,
+        "status": "quoted",
+        "amount_in_usd": 99.9587,
+        "amount_out_usd": 99.9453,
+        "spread_bps": 1.34,
+        "time_estimate_sec": 19,
+        "latency_ms": 501.2,
+        "corridor_label": "USDC (NEAR -> Arbitrum)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_ARB",
+        "amount_usd": 1000.0,
+        "status": "quoted",
+        "amount_in_usd": 999.587,
+        "amount_out_usd": 999.4801,
+        "spread_bps": 1.07,
+        "time_estimate_sec": 19,
+        "latency_ms": 497.9,
+        "corridor_label": "USDC (NEAR -> Arbitrum)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_ARB",
+        "amount_usd": 10000.0,
+        "status": "quoted",
+        "amount_in_usd": 9995.87,
+        "amount_out_usd": 9993.8456,
+        "spread_bps": 2.03,
+        "time_estimate_sec": 19,
+        "latency_ms": 512.9,
+        "corridor_label": "USDC (NEAR -> Arbitrum)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_BASE",
+        "amount_usd": 1.0,
+        "status": "quoted",
+        "amount_in_usd": 0.9996,
+        "amount_out_usd": 0.997,
+        "spread_bps": 26.02,
+        "time_estimate_sec": 22,
+        "latency_ms": 498.0,
+        "corridor_label": "USDC (NEAR -> Base)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_BASE",
+        "amount_usd": 10.0,
+        "status": "quoted",
+        "amount_in_usd": 9.9959,
+        "amount_out_usd": 9.9918,
+        "spread_bps": 4.1,
+        "time_estimate_sec": 22,
+        "latency_ms": 525.9,
+        "corridor_label": "USDC (NEAR -> Base)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_BASE",
+        "amount_usd": 100.0,
+        "status": "quoted",
+        "amount_in_usd": 99.9587,
+        "amount_out_usd": 99.9424,
+        "spread_bps": 1.63,
+        "time_estimate_sec": 22,
+        "latency_ms": 638.7,
+        "corridor_label": "USDC (NEAR -> Base)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_BASE",
+        "amount_usd": 1000.0,
+        "status": "quoted",
+        "amount_in_usd": 999.587,
+        "amount_out_usd": 999.4172,
+        "spread_bps": 1.7,
+        "time_estimate_sec": 22,
+        "latency_ms": 582.2,
+        "corridor_label": "USDC (NEAR -> Base)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_BASE",
+        "amount_usd": 10000.0,
+        "status": "quoted",
+        "amount_in_usd": 9995.87,
+        "amount_out_usd": 9994.1117,
+        "spread_bps": 1.76,
+        "time_estimate_sec": 22,
+        "latency_ms": 587.5,
+        "corridor_label": "USDC (NEAR -> Base)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_SOL",
+        "amount_usd": 1.0,
+        "status": "quoted",
+        "amount_in_usd": 0.9996,
+        "amount_out_usd": 0.9894,
+        "spread_bps": 102.06,
+        "time_estimate_sec": 17,
+        "latency_ms": 823.5,
+        "corridor_label": "USDC (NEAR -> Solana)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_SOL",
+        "amount_usd": 10.0,
+        "status": "quoted",
+        "amount_in_usd": 9.9959,
+        "amount_out_usd": 9.9847,
+        "spread_bps": 11.19,
+        "time_estimate_sec": 17,
+        "latency_ms": 665.9,
+        "corridor_label": "USDC (NEAR -> Solana)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_SOL",
+        "amount_usd": 100.0,
+        "status": "quoted",
+        "amount_in_usd": 99.9587,
+        "amount_out_usd": 99.94,
+        "spread_bps": 1.87,
+        "time_estimate_sec": 17,
+        "latency_ms": 669.5,
+        "corridor_label": "USDC (NEAR -> Solana)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_SOL",
+        "amount_usd": 1000.0,
+        "status": "quoted",
+        "amount_in_usd": 999.587,
+        "amount_out_usd": 999.4651,
+        "spread_bps": 1.22,
+        "time_estimate_sec": 17,
+        "latency_ms": 596.7,
+        "corridor_label": "USDC (NEAR -> Solana)"
+      },
+      {
+        "corridor": "USDC_NEAR_to_SOL",
+        "amount_usd": 10000.0,
+        "status": "quoted",
+        "amount_in_usd": 9995.87,
+        "amount_out_usd": 9994.1443,
+        "spread_bps": 1.73,
+        "time_estimate_sec": 17,
+        "latency_ms": 1145.7,
+        "corridor_label": "USDC (NEAR -> Solana)"
+      },
+      {
+        "corridor": "wNEAR_to_ARB_USDC",
+        "amount_usd": 1.0,
+        "status": "quoted",
+        "amount_in_usd": 1.0,
+        "amount_out_usd": 0.9919,
+        "spread_bps": 80.9,
+        "time_estimate_sec": 21,
+        "latency_ms": 539.7,
+        "corridor_label": "wNEAR -> Arbitrum USDC"
+      },
+      {
+        "corridor": "wNEAR_to_ARB_USDC",
+        "amount_usd": 10.0,
+        "status": "quoted",
+        "amount_in_usd": 10.0,
+        "amount_out_usd": 9.9853,
+        "spread_bps": 14.72,
+        "time_estimate_sec": 19,
+        "latency_ms": 675.2,
+        "corridor_label": "wNEAR -> Arbitrum USDC"
+      },
+      {
+        "corridor": "wNEAR_to_ARB_USDC",
+        "amount_usd": 100.0,
+        "status": "quoted",
+        "amount_in_usd": 100.0,
+        "amount_out_usd": 99.7156,
+        "spread_bps": 28.44,
+        "time_estimate_sec": 21,
+        "latency_ms": 581.6,
+        "corridor_label": "wNEAR -> Arbitrum USDC"
+      },
+      {
+        "corridor": "wNEAR_to_ARB_USDC",
+        "amount_usd": 1000.0,
+        "status": "quoted",
+        "amount_in_usd": 1000.0,
+        "amount_out_usd": 998.3485,
+        "spread_bps": 16.51,
+        "time_estimate_sec": 19,
+        "latency_ms": 576.8,
+        "corridor_label": "wNEAR -> Arbitrum USDC"
+      },
+      {
+        "corridor": "wNEAR_to_ARB_USDC",
+        "amount_usd": 10000.0,
+        "status": "quoted",
+        "amount_in_usd": 10000.0,
+        "amount_out_usd": 9972.0824,
+        "spread_bps": 27.92,
+        "time_estimate_sec": 1819,
+        "latency_ms": 537.1,
+        "corridor_label": "wNEAR -> Arbitrum USDC"
+      }
+    ]
+  },
+  "swarm_tco": {
+    "near_scoped_keys": {
+      "setup_usd": 0.0356,
+      "rotation_usd": 0.1424,
+      "execution_usd": 11.036,
+      "storage_lockup_usd": 0.0,
+      "refundable_key_bond_usd": 0.3987,
+      "total_30d_usd": 11.214
+    },
+    "near_subaccounts": {
+      "setup_usd": 0.1851,
+      "rotation_usd": 0.1424,
+      "execution_usd": 11.036,
+      "storage_lockup_usd": 6.4792,
+      "total_30d_usd": 17.8427
+    },
+    "base_erc4337": {
+      "setup_usd": 1.8,
+      "rotation_usd": 0.9,
+      "execution_usd": 28.0,
+      "storage_lockup_usd": 0.0,
+      "total_30d_usd": 30.7
+    },
+    "arbitrum_erc4337": {
+      "setup_usd": 2.4,
+      "rotation_usd": 1.2,
+      "execution_usd": 35.0,
+      "storage_lockup_usd": 0.0,
+      "total_30d_usd": 38.6
+    },
+    "solana_keypairs": {
+      "setup_usd": 0.05,
+      "rotation_usd": 0.2,
+      "execution_usd": 4.5,
+      "storage_lockup_usd": 16.4813,
+      "total_30d_usd": 21.2313
+    }
+  },
+  "bigquery_validation": {
+    "dataset": "bigquery-public-data.crypto_near_mainnet_us",
+    "maximum_bytes_billed": 50000000000,
+    "validated_sql_files": [
+      "01_agent_primitives_daily.sql",
+      "02_receiver_concentration.sql",
+      "03_gas_and_storage_costs.sql"
+    ],
+    "lake_deprecation_date": "2026-03-24"
+  },
+  "falsification_checks": {
+    "check1_scoped_keys_ge_25pct": {
+      "threshold_pct": 25.0,
+      "observed_pct": 18.9,
+      "passed": false
+    },
+    "check2_near_scoped_tco_lt_evm": {
+      "near_scoped_usd": 11.214,
+      "base_erc4337_usd": 30.7,
+      "arbitrum_erc4337_usd": 38.6,
+      "passed": true
+    },
+    "check3_intents_mid_tier_spread_lt_150bps": {
+      "threshold_bps": 150.0,
+      "observed_median_bps": 1.67,
+      "passed": true
+    }
+  }
+}
