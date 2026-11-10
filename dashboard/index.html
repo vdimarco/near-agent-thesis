@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEAR Investment Thesis: Protocol Primitives for the Agent Economy</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-alt: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #10b981;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --blue: #3b82f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 36px 20px 72px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 880px;
+      margin: 0 0 28px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .kpi-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kpi-val {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px;
+      font-weight: 700;
+      margin: 6px 0 4px;
+    }
+    .kpi-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .badge-pass { color: var(--accent); font-weight: 700; }
+    .badge-fail { color: var(--warn); font-weight: 700; }
+    .section-title {
+      font-size: 22px;
+      margin: 36px 0 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .chart-sentence {
+      font-size: 15px;
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 3px solid var(--blue);
+      padding: 10px 14px;
+      margin: 0 0 18px;
+      border-radius: 0 8px 8px 0;
+    }
+    .chart-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+    details {
+      margin-top: 16px;
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+    summary {
+      cursor: pointer;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+    pre {
+      margin: 12px 0 0;
+      padding: 12px;
+      background: #090d16;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: #a7f3d0;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    @media (max-width: 780px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .control-group {
+      margin-bottom: 16px;
+    }
+    .control-group label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
+    td.num { font-family: "JetBrains Mono", monospace; font-weight: 600; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 780px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="eyebrow">NEAR Hackathon 2026 · Track 02: Investment Thesis</span>
+    <h1>Protocol Primitives for the Agent Economy: NEAR On the Evidence</h1>
+    <p class="subtitle">
+      Testing whether NEAR's native scoped access keys, sub-accounts, gasless meta-transactions, and NEAR Intents cross-chain settlement provide a verifiable cost and execution advantage for autonomous AI agents, including every data point that cuts against the thesis.
+    </p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">100-Agent Swarm 30d TCO</div>
+        <div class="kpi-val" style="color: var(--accent);">$11.21</div>
+        <div class="kpi-note"><span class="badge-pass">PASSED Check 2:</span> Shared parent + scoped keys ($17.84 w/ sub-accounts) vs. $30.70 on Base ERC-4337 and $38.60 on Arbitrum.</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Intents $100-$1K Spread</div>
+        <div class="kpi-val" style="color: var(--accent);">1.67 bps</div>
+        <div class="kpi-note"><span class="badge-pass">PASSED Check 3:</span> Median across 4 live cross-chain corridors (threshold &lt; 150 bps; 579.2 ms median quote time).</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Scoped FunctionCall Keys</div>
+        <div class="kpi-val" style="color: var(--warn);">18.9%</div>
+        <div class="kpi-note"><span class="badge-fail">FAILED Check 1 (&lt; 25%):</span> Consumer relayers skew toward FullAccess pools, though intents.near is 9/9 FunctionCall.</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Top-3 Receiver Share</div>
+        <div class="kpi-val" style="color: var(--warn);">66.4%</div>
+        <div class="kpi-note">token.sweat, spin.sweat, and game.hot.tg dominate relayer traffic; non-top-3 is 33.6% (intents.near at 9.8%, HHI 1683.69).</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">1. Interactive 100-Agent Swarm TCO Model</h2>
+    <div class="calc-grid">
+      <div>
+        <div class="control-group">
+          <label><span>Number of Agents</span><span id="lbl-agents">100</span></label>
+          <input id="inp-agents" type="range" min="10" max="1000" step="10" value="100" />
+        </div>
+        <div class="control-group">
+          <label><span>Monthly Actions (Total)</span><span id="lbl-actions">10,000</span></label>
+          <input id="inp-actions" type="range" min="1000" max="100000" step="1000" value="10000" />
+        </div>
+        <div class="control-group">
+          <label><span>Key Rotations / Agent / Month</span><span id="lbl-rotations">2</span></label>
+          <input id="inp-rotations" type="range" min="0" max="10" step="1" value="2" />
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">
+          Model uses live NEAR price ($3.56), 0.001 NEAR per 100 bytes state storage lockup (1,820 bytes per dedicated sub-account vs. 112 bytes per scoped key), and empirical L2 ERC-4337 UserOp costs.
+        </p>
+      </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Architecture</th>
+              <th>Setup + Rotation</th>
+              <th>Execution</th>
+              <th>Storage Lockup</th>
+              <th>30-Day Total</th>
+            </tr>
+          </thead>
+          <tbody id="tco-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-title">2. Reproducible Charts and Underlying Queries</h2>
+
+    <div class="chart-card">
+      <p class="chart-sentence">
+        <strong>What Chart 1 shows:</strong> Gasless DELEGATE_ACTION receipts make up 65.0% of sampled mainnet actions and sub-accounts appear in 35.4% of transactions, while scoped FunctionCall keys represent 18.9% of active keys across inspected accounts (with intents.near using 9 FunctionCall keys and 0 FullAccess keys).
+      </p>
+      <div class="chart-frame">
+        <img src="assets/chart1_primitives.svg" alt="Chart 1: NEAR Mainnet Agent-Enabling Primitive Shares" />
+      </div>
+      <details>
+        <summary>View SQL &amp; RPC Query Behind Chart 1 (sql/01_agent_primitives_daily.sql + FastNEAR view_access_key_list)</summary>
+        <pre>SELECT
+  ra.block_date,
+  ra.action_kind,
+  COUNT(1) AS action_count,
+  COUNT(DISTINCT ra.receipt_predecessor_account_id) AS unique_predecessors,
+  COUNT(DISTINCT ra.receipt_receiver_account_id) AS unique_receivers,
+  COUNTIF(
+    ra.action_kind = 'ADD_KEY'
+    AND JSON_EXTRACT_SCALAR(ra.args, '$.access_key.permission.permission_kind') = 'FUNCTION_CALL'
+  ) AS scoped_function_call_keys,
+  COUNTIF(
+    ra.action_kind = 'ADD_KEY'
+    AND JSON_EXTRACT_SCALAR(ra.args, '$.access_key.permission.permission_kind') = 'FULL_ACCESS'
+  ) AS full_access_keys
+FROM `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` AS ra
+WHERE ra.block_date BETWEEN DATE('2025-09-01') AND DATE('2026-03-24')
+  AND ra.action_kind IN ('FUNCTION_CALL', 'DELEGATE_ACTION', 'ADD_KEY', 'CREATE_ACCOUNT')
+GROUP BY ra.block_date, ra.action_kind
+ORDER BY ra.block_date ASC, action_count DESC;</pre>
+      </details>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-sentence">
+        <strong>What Chart 2 shows:</strong> Three consumer applications (token.sweat, spin.sweat, and game.hot.tg) account for 66.4% of top-receiver receipts in our mainnet sample, while non-top-3 contracts represent 33.6% and intents.near already ranks fourth at 9.8% (HHI 1683.69).
+      </p>
+      <div class="chart-frame">
+        <img src="assets/chart2_concentration.svg" alt="Chart 2: Receiver Concentration" />
+      </div>
+      <details>
+        <summary>View SQL Query Behind Chart 2 (sql/02_receiver_concentration.sql)</summary>
+        <pre>SELECT
+  ra.block_date,
+  ra.action_kind,
+  ra.receipt_receiver_account_id AS receiver_account_id,
+  COUNT(1) AS receipt_count,
+  COUNT(DISTINCT ra.receipt_predecessor_account_id) AS unique_callers
+FROM `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` AS ra
+WHERE ra.block_date BETWEEN DATE('2026-01-01') AND DATE('2026-03-24')
+  AND ra.action_kind IN ('DELEGATE_ACTION', 'FUNCTION_CALL')
+GROUP BY ra.block_date, ra.action_kind, receiver_account_id
+QUALIFY ROW_NUMBER() OVER (
+  PARTITION BY ra.block_date, ra.action_kind
+  ORDER BY COUNT(1) DESC
+) &lt;= 25
+ORDER BY ra.block_date ASC, ra.action_kind ASC, receipt_count DESC;</pre>
+      </details>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-sentence">
+        <strong>What Chart 3 shows:</strong> Live NEAR Intents 1Click cross-chain quotes achieve a 1.67 bps median spread on $100 to $1,000 transfers across Arbitrum, Base, and Solana, whereas fixed destination withdrawal fees push $1 micro-transfers to 67.96 bps median spread.
+      </p>
+      <div class="chart-frame">
+        <img src="assets/chart3_intents_spreads.svg" alt="Chart 3: NEAR Intents 1Click Spreads" />
+      </div>
+      <details>
+        <summary>View 1Click API Query Behind Chart 3 (src/fetch.py -> POST https://1click.chaindefuser.com/v0/quote)</summary>
+        <pre>curl -sS -X POST "https://1click.chaindefuser.com/v0/quote" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "dry": true,
+    "swapType": "EXACT_INPUT",
+    "slippageTolerance": 100,
+    "originAsset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "depositType": "ORIGIN_CHAIN",
+    "destinationAsset": "nep141:arb-0xaf88d065e77c8cc2239327c5edb3a432268e5831.omft.near",
+    "amount": "100000000",
+    "refundTo": "intents.near",
+    "refundType": "ORIGIN_CHAIN",
+    "recipient": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    "recipientType": "DESTINATION_CHAIN",
+    "deadline": "2026-11-11T00:00:00.000Z"
+  }'</pre>
+      </details>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-sentence">
+        <strong>What Chart 4 shows:</strong> Operating a 100-agent swarm for 30 days (10,000 actions and 200 key rotations) costs $11.21 on NEAR with shared-account scoped keys and $17.84 with dedicated sub-accounts, beating Solana ($21.23), Base ERC-4337 ($30.70), and Arbitrum ERC-4337 ($38.60).
+      </p>
+      <div class="chart-frame">
+        <img src="assets/chart4_swarm_tco.svg" alt="Chart 4: 30-Day Swarm TCO" />
+      </div>
+      <details>
+        <summary>View SQL Query Behind Chart 4 (sql/03_gas_and_storage_costs.sql)</summary>
+        <pre>SELECT
+  ra.action_kind,
+  COUNT(1) AS sample_receipts,
+  APPROX_QUANTILES(eo.gas_burnt, 100)[OFFSET(50)] AS p50_gas_burnt,
+  APPROX_QUANTILES(eo.gas_burnt, 100)[OFFSET(95)] AS p95_gas_burnt,
+  AVG(SAFE_CAST(eo.tokens_burnt AS FLOAT64) / 1e24) AS mean_near_burnt
+FROM `bigquery-public-data.crypto_near_mainnet_us.receipt_actions` AS ra
+JOIN `bigquery-public-data.crypto_near_mainnet_us.execution_outcomes` AS eo
+  ON ra.receipt_id = eo.receipt_id
+  AND ra.block_date = eo.block_date
+WHERE ra.block_date BETWEEN DATE('2026-03-01') AND DATE('2026-03-24')
+  AND eo.block_date BETWEEN DATE('2026-03-01') AND DATE('2026-03-24')
+  AND ra.action_kind IN ('ADD_KEY', 'DELETE_KEY', 'CREATE_ACCOUNT', 'DELEGATE_ACTION', 'FUNCTION_CALL')
+GROUP BY ra.action_kind
+ORDER BY sample_receipts DESC;</pre>
+      </details>
+    </div>
+
+    <h2 class="section-title">3. Thesis Summary: Evidence For, Evidence Against, and What Changes Our Mind</h2>
+    <div class="two-col">
+      <div class="chart-card">
+        <h3 style="margin-top: 0; color: var(--accent);">Evidence For the Thesis</h3>
+        <ul>
+          <li><strong>Zero-contract scoped keys:</strong> Adding or rotating a method-scoped <code>FunctionCall</code> key on NEAR is a native protocol action costing ~$0.00036, avoiding ERC-4337 smart account deployment and session-key validator modules.</li>
+          <li><strong>Tight cross-chain settlement:</strong> NEAR Intents 1Click swaps settle across 229 tokens with a 1.67 bps median spread on $100 to $1,000 orders and 13.56 GB of active onchain state in <code>intents.near</code>.</li>
+          <li><strong>Gasless relayer maturity:</strong> 65.0% of sampled mainnet actions already execute via NEP-366 <code>DELEGATE_ACTION</code> meta-transactions.</li>
+        </ul>
+      </div>
+      <div class="chart-card">
+        <h3 style="margin-top: 0; color: var(--warn);">Evidence Against &amp; Falsification</h3>
+        <ul>
+          <li><strong>Consumer relayer concentration:</strong> 66.4% of top-receiver receipts hit just 3 consumer apps (<code>token.sweat</code>, <code>spin.sweat</code>, <code>game.hot.tg</code>).</li>
+          <li><strong>Failed Check 1 (18.9% vs. 25.0%):</strong> Consumer relayers use <code>FullAccess</code> key pools rather than scoped <code>FunctionCall</code> keys, pulling the sample key share to 18.9%.</li>
+          <li><strong>Sub-account storage lockup &amp; $1 spread floor:</strong> Dedicated sub-accounts lock $6.48 per 100 agents, and $1 cross-chain swaps pay 67.96 bps median spread. Agents should share a parent account via scoped keys and batch cross-chain payouts above $10 (8.78 bps).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const nearPrice = 3.56;
+    const inpAgents = document.getElementById('inp-agents');
+    const inpActions = document.getElementById('inp-actions');
+    const inpRotations = document.getElementById('inp-rotations');
+    const tbody = document.getElementById('tco-tbody');
+
+    function renderTco() {
+      const n = Number(inpAgents.value);
+      const act = Number(inpActions.value);
+      const rot = Number(inpRotations.value);
+      document.getElementById('lbl-agents').textContent = n.toLocaleString();
+      document.getElementById('lbl-actions').textContent = act.toLocaleString();
+      document.getElementById('lbl-rotations').textContent = rot.toLocaleString();
+
+      const rotations = n * rot;
+      const nearExec = act * 0.00031 * nearPrice;
+      const nearRot = rotations * 0.00020 * nearPrice;
+
+      const rows = [
+        {
+          name: 'NEAR Shared Parent + Scoped Keys',
+          setupRot: (n * 0.00010 * nearPrice) + nearRot,
+          exec: nearExec,
+          storage: 0.0,
+        },
+        {
+          name: 'NEAR Dedicated Sub-Accounts',
+          setupRot: (n * 0.00052 * nearPrice) + nearRot,
+          exec: nearExec,
+          storage: n * 1820 * 0.00001 * nearPrice,
+        },
+        {
+          name: 'Solana Rent-Exempt Keypairs',
+          setupRot: (n * 0.0005) + (rotations * 0.0010),
+          exec: act * 0.00045,
+          storage: n * 0.00089088 * 185.0,
+        },
+        {
+          name: 'Base ERC-4337 Smart Accounts',
+          setupRot: (n * 0.018) + (rotations * 0.0045),
+          exec: act * 0.0028,
+          storage: 0.0,
+        },
+        {
+          name: 'Arbitrum ERC-4337 Smart Accounts',
+          setupRot: (n * 0.024) + (rotations * 0.0060),
+          exec: act * 0.0035,
+          storage: 0.0,
+        },
+      ];
+
+      tbody.innerHTML = rows.map(r => {
+        const total = r.setupRot + r.exec + r.storage;
+        return `<tr>
+          <td>${r.name}</td>
+          <td class="num">$${r.setupRot.toFixed(2)}</td>
+          <td class="num">$${r.exec.toFixed(2)}</td>
+          <td class="num">$${r.storage.toFixed(2)}</td>
+          <td class="num" style="color: #10b981;">$${total.toFixed(2)}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    [inpAgents, inpActions, inpRotations].forEach(el => el.addEventListener('input', renderTco));
+    renderTco();
+  </script>
+</body>
+</html>
