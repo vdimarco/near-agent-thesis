@@ -2,8 +2,10 @@
 
 **NEAR Hackathon: Build Beyond Boundaries (November 2026)**
 - **Tracks:** `thesis` (02. Investment Thesis), `agents` (07. Agent Economy)
+- **Live Dashboard:** https://near-agent-thesis.vercel.app
+- **Public Repository:** https://github.com/vdimarco/near-agent-thesis
 - **Full Written Thesis:** [`THESIS.md`](THESIS.md)
-- **Static Dashboard:** [`dashboard/index.html`](dashboard/index.html)
+- **Static Dashboard Source:** [`dashboard/index.html`](dashboard/index.html)
 
 ---
 

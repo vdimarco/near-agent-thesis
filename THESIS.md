@@ -2,6 +2,8 @@
 
 - **Track:** `thesis` (02. Investment Thesis) and `agents` (07. Agent Economy)
 - **Author:** Vaughn DiMarco
+- **Live Dashboard:** https://near-agent-thesis.vercel.app
+- **Repository:** https://github.com/vdimarco/near-agent-thesis
 - **Snapshot Date:** 2026-11-10 (Mainnet Block `#223968544`, NEAR Price `$3.56`)
 - **Reproducibility:** Run `python -m src.analyze` to rebuild `data/audit_stats.json` and all four charts in `dashboard/assets/` offline in under 1 second.
 
