@@ -73,4 +73,4 @@ python3 -m http.server 8080 --directory dashboard
 
 ## Disclosure (Hackathon Rule Q-015)
 
-One person may submit up to 2 independent projects if disclosed in each README. If a second independent project is submitted by Vaughn DiMarco (such as an onchain commit-reveal swarm coordinator extending `swarm-alignment-2026`), it is a separate codebase solving multi-agent deliberation collapse rather than the onchain investment thesis and unit-economics model in this repository.
+One person may submit up to 2 independent projects if disclosed in each README. The companion independent submission by Vaughn DiMarco is [`vdimarco/near-hackathon-market`](https://github.com/vdimarco/near-hackathon-market) (Lock Before You Talk / Arrow Escrow), a separate Rust smart-contract codebase for agent dispute resolution and TEE-inspected data escrow rather than the onchain investment thesis and unit-economics model in this repository.

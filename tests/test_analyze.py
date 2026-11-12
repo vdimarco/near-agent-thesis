@@ -57,3 +57,7 @@ def test_document_traceability_and_no_em_dashes():
     for token in expected_tokens:
         assert token in thesis, f"Missing {token} in THESIS.md"
         assert token in dashboard, f"Missing {token} in dashboard/index.html"
+
+    assert "https://github.com/vdimarco/near-hackathon-market" in readme
+    preview_png = ROOT / "dashboard" / "assets" / "dashboard-preview.png"
+    assert preview_png.exists() and preview_png.stat().st_size > 10_000
