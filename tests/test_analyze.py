@@ -1,8 +1,10 @@
 from pathlib import Path
 import json
+import pytest
 from src.analyze import run_analysis
 
 ROOT = Path(__file__).resolve().parent.parent
+SNAPSHOT_FETCHED_AT = "2026-11-10T20:52:20.472447+00:00"
 
 
 def test_run_analysis_builds_audit_stats_and_four_svg_charts():
@@ -46,6 +48,12 @@ def test_document_traceability_and_no_em_dashes():
         ("dashboard/index.html", dashboard),
     ]:
         assert "\u2014" not in text, f"Found em dash in {doc_name}"
+
+    # THESIS.md and the dashboard describe the committed 10 November snapshot. After
+    # `python -m src.fetch` refreshes data/raw/, their numbers no longer apply.
+    provenance = json.loads((ROOT / "data" / "raw" / "provenance.json").read_text(encoding="utf-8"))
+    if provenance.get("fetched_at_utc") != SNAPSHOT_FETCHED_AT:
+        pytest.skip(f"data/raw/ was refreshed at {provenance.get('fetched_at_utc')}; THESIS.md describes the snapshot of {SNAPSHOT_FETCHED_AT}")
 
     expected_tokens = [
         f"{stats['agent_primitives']['scoped_key_share_pct']:.1f}%",
